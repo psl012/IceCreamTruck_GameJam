@@ -30,7 +30,7 @@ public class ScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        LevelManager.instance.onRestartLevel += RestartScore;
     }
 
     // Update is called once per frame
@@ -42,6 +42,12 @@ public class ScoreManager : MonoBehaviour
     public void UpdateScore(float point)
     {
         score += point;
+        _textMeshPro.text = BASE_TXT + score.ToString();
+    }
+
+    void RestartScore()
+    {
+        score = 0;
         _textMeshPro.text = BASE_TXT + score.ToString();
     }
 }

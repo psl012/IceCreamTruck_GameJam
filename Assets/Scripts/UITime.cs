@@ -25,7 +25,7 @@ public class UITime : MonoBehaviour
     {
         if(LevelManager.instance._gameState == LevelManager.GameState.Play)
         {
-            _textMeshPro.text =TIMER_TXT + LevelManager.instance.elapsed.ToString("#.");
+            _textMeshPro.text =TIMER_TXT + LevelManager.instance._elapsed.ToString("0");
         }
         else if(LevelManager.instance._gameState == LevelManager.GameState.TimeOut)
         {

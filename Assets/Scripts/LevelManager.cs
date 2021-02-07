@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -8,10 +10,14 @@ public class LevelManager : MonoBehaviour
 
     public enum GameState{Play, TimeOut};
 
+    public event Action onTimeOut = delegate {};
+
+    public event Action onRestartLevel = delegate {};
+
     public GameState _gameState;
 
     [SerializeField] float _timer;
-    public float elapsed {get; private set;} 
+    public float _elapsed {get; private set;} 
 
     void Awake()
     {
@@ -25,7 +31,7 @@ public class LevelManager : MonoBehaviour
             Destroy(gameObject);
         }
         
-        elapsed = _timer;        
+        _elapsed = _timer;        
     }
 
     // Start is called before the first frame update
@@ -42,12 +48,21 @@ public class LevelManager : MonoBehaviour
             return;
         }
 
-        if(elapsed <= 0)
+        if(_elapsed <= 0)
         {
-            elapsed = 0;
+            _elapsed = 0;
             _gameState = GameState.TimeOut;
+            onTimeOut();
         }
 
-        elapsed -= Time.deltaTime;
+        _elapsed -= Time.deltaTime;
+    }
+
+    public void RestartLevel()
+    {
+        _elapsed = _timer;
+        _gameState = GameState.Play;
+        onRestartLevel();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);        
     }
 }
