@@ -30,3 +30,7 @@ sysinfo.txt
 *.apk
 *.unitypackage
 Assets/POLYGON city pack/scene/
+Assets/Materials/BlueSkySkybox.png
+Assets/Materials/BlueSkySkybox.png.meta
+Assets/Materials/Skybox.mat
+Assets/Materials/Skybox.mat.meta
