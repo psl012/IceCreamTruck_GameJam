@@ -17,11 +17,15 @@ public class Customer : MonoBehaviour
     bool _canBuy = false;
     bool _finishedBuying = false;
     AudioSource _audioSource;
-    
+    Spawner _spawner;
+
+    bool hasSpawned = false;
+
     void Awake()
     {
         _rigidBody = GetComponent<Rigidbody>();
         _audioSource = GetComponent<AudioSource>();
+        _spawner = GetComponentInParent<Spawner>();
     }
 
     // Start is called before the first frame update
@@ -51,6 +55,8 @@ public class Customer : MonoBehaviour
             _canBuy = false;
             _finishedBuying = true;
             onTransactionComplete();
+            SpawnNext();
+            Destroy(gameObject,2f);
         }
     }
 
@@ -93,7 +99,18 @@ public class Customer : MonoBehaviour
             {   
                 _rigidBody.constraints = RigidbodyConstraints.None;
                 Debug.Log("Dead" + collisionForce);
+                SpawnNext();
+                Destroy(gameObject,2f);
             }
+        }
+    }
+
+    void SpawnNext()
+    {
+        if (!hasSpawned)
+        {
+            hasSpawned = true;
+            _spawner.StartCoroutine(_spawner.SpawnCustomer());
         }
     }
 
