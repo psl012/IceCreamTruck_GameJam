@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Spawner : MonoBehaviour
 {
     public const string COROUTINE_NAME = "SpawnCustomer"; 
@@ -15,7 +16,7 @@ public class Spawner : MonoBehaviour
     {
         if (isInstaSpawn)
         { 
-             Instantiate(_customer, transform.position, transform.rotation, this.transform);
+            Instantiate(_customer, transform.position, transform.rotation, this.transform);
         }
         else
         {
@@ -26,7 +27,6 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public IEnumerator SpawnCustomer()

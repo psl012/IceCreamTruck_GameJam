@@ -44,8 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76df38da10950d44f9814747ecbfc56f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _customer: {fileID: 8608933051215422859, guid: c90a1f978c2086047b3ba781db314a3a,
+  _customer: {fileID: 1957371100366528117, guid: 2563a900bfea63e4989205b088763e8c,
     type: 3}
+  isInstaSpawn: 1
 --- !u!1 &5244928020695643462
 GameObject:
   m_ObjectHideFlags: 0
@@ -63,7 +64,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4935946874591532295
 Transform:
   m_ObjectHideFlags: 0
@@ -72,7 +73,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5244928020695643462}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2.8}
+  m_LocalPosition: {x: 0, y: 0, z: 2.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3626827548730031021}
