@@ -342,7 +342,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1957371100366226017}
   - component: {fileID: 1957371100352926575}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LegRight1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1957371100366226019}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Neck1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -456,7 +456,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1957371100366226021}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LegR2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -487,7 +487,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1957371100366226023}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LegR3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -517,7 +517,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1957371100366226025}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spine2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -550,7 +550,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1957371100366226029}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Rig1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -583,7 +583,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1957371100366226031}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -614,7 +614,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1957371100366225985}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ArmL3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -645,7 +645,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1957371100366225987}
   - component: {fileID: 1957371100352926565}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ArmLeft1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -729,7 +729,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1957371100366225989}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ArmL1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -760,7 +760,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1957371100366225991}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ArmL2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -791,7 +791,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1957371100366225993}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ArmR3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -822,7 +822,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1957371100366225995}
   - component: {fileID: 1957371100352926567}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ArmRight1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -906,7 +906,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1957371100366225997}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ArmR1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -937,7 +937,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1957371100366225999}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ArmR2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -969,7 +969,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1957371100366226001}
   - component: {fileID: 1957371100352926563}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Head1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1051,7 +1051,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1957371100366226003}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LegL1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1088,7 +1088,7 @@ GameObject:
   - component: {fileID: 1957371100366624985}
   - component: {fileID: 1957371100366624991}
   - component: {fileID: 1957371100366624990}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Customer1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1302,7 +1302,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1957371100366226007}
   - component: {fileID: 1957371100352926561}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Body1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1387,7 +1387,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1957371100366226009}
   - component: {fileID: 1957371100352926573}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LegLeft1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1471,7 +1471,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1957371100366226011}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LegR1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1502,7 +1502,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1957371100366226013}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LegL2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1533,7 +1533,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1957371100366226015}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LegL3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1917,6 +1917,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Marker
+      objectReference: {fileID: 0}
+    - target: {fileID: 934277738230625981, guid: 19a783ac2822e4b46b05371096cb724e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19a783ac2822e4b46b05371096cb724e, type: 3}
