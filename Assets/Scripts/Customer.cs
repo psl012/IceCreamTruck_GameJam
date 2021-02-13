@@ -10,55 +10,69 @@ public class Customer : MonoBehaviour
     public event Action onTransactionComplete = delegate {};
     public event Action<float> onTransacting = delegate {};
     [SerializeField] float point;
-    [SerializeField] AudioClip[] _audioClip;
+    public AudioClip[] _audioClip;
     Rigidbody _rigidBody;
     public float _buyTime = 2f;
     public float _elapsed {get; private set;} = 0;
-    bool _canBuy = false;
-    bool _finishedBuying = false;
-    AudioSource _audioSource;
+
+
+
     Spawner _spawner;
 
     bool hasSpawned = false;
+
+
+
+    public AudioSource _audioSource{get; private set;}
+    StateMachine _stateMachine;
+    bool _canBuy = false;
+    bool _finishedBuying = false;
+
 
     void Awake()
     {
         _rigidBody = GetComponent<Rigidbody>();
         _audioSource = GetComponent<AudioSource>();
         _spawner = GetComponentInParent<Spawner>();
+
+        var waitingState = new WaitingState();
+        var buyingState = new BuyingState(_buyTime, this);
+        var finishedState = new FinishedState(this);
+
+        _stateMachine = new StateMachine();
+
+        At(waitingState, buyingState, IsCustomerCanBuy());
+        At(buyingState, waitingState, NotIsCustomerCanBuy());
+        At(buyingState, finishedState, IsFinishedBuying());
+
+        _stateMachine.SetState(waitingState);
+
+        void At(IState from, IState to, Func<bool> condition) => _stateMachine.AddTransition(from, to, condition);
+        Func<bool> IsCustomerCanBuy() => () => _canBuy;
+        Func<bool> NotIsCustomerCanBuy() => () => !_canBuy;
+        Func<bool> IsFinishedBuying() => () => _finishedBuying;
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
         onTransactionComplete += UpdateScore;
-        onTransactionComplete += PlayKaching;
+      //  onTransactionComplete += PlayKaching;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (LevelManager.instance._gameState == LevelManager.GameState.TimeOut)
-        {
-            return;
-        }
+        _stateMachine.Tick();
 
-        if (_finishedBuying) {return;}
-
-        if (!_canBuy){return;}
-        _elapsed += Time.deltaTime;
-        onTransacting(_elapsed/_buyTime);
-
-        if (_elapsed >= _buyTime)
-        {
-            Debug.Log("transaction complete");
-            _canBuy = false;
-            _finishedBuying = true;
-            onTransactionComplete();
-            SpawnNext();
-            Destroy(gameObject,2f);
-        }
     }
+
+    public void SetFinishedBuying(bool value)
+    {
+        _finishedBuying = value;
+    }
+
 
     void UpdateScore()
     {
@@ -85,27 +99,8 @@ public class Customer : MonoBehaviour
             onReWaiting();
         }
     }
-    void OnCollisionEnter (Collision collision)
-    {
-        float collisionForce = collision.impulse.magnitude / Time.fixedDeltaTime;
-    
-        if (collisionForce < 400.0F)
-        {
-            Debug.Log("Alive" + collisionForce);
-        }
-        else 
-        {
-            if (!_finishedBuying)
-            {   
-                _rigidBody.constraints = RigidbodyConstraints.None;
-                Debug.Log("Dead" + collisionForce);
-                SpawnNext();
-                Destroy(gameObject,2f);
-            }
-        }
-    }
 
-    void SpawnNext()
+    public void SpawnNext()
     {
         if (!hasSpawned)
         {
@@ -114,9 +109,9 @@ public class Customer : MonoBehaviour
         }
     }
 
-    void PlayKaching()
+    public void CustomerDestroy(float delay)
     {
-        _audioSource.PlayOneShot(_audioClip[0]);
+        Destroy(gameObject, delay);
     }
 
     void OnDestroy()

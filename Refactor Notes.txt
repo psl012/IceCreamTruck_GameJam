@@ -1,0 +1,21 @@
+Player
+  - Handle Input (Make it just a public class)
+  - Movement is inside the player
+  
+Customer
+  - AI States
+	- Waiting State
+	- Buying State
+	- Sold State
+	- Dead State
+	- Game Over State
+	
+LevelManager
+	- timer
+	- Score
+
+UIManager
+	[SerializeField] Score
+	[SerializeField] Timer
+	- Update Score
+	- Update Timer
