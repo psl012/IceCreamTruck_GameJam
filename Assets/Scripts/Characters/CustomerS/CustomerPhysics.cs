@@ -13,18 +13,6 @@ public class CustomerPhysics : MonoBehaviour
         _customer = GetComponent<Customer>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void OnCollisionEnter (Collision collision)
     {
         float collisionForce = collision.impulse.magnitude / Time.fixedDeltaTime;
@@ -35,12 +23,10 @@ public class CustomerPhysics : MonoBehaviour
         }
         else 
         {
-       //     if (!_finishedBuying)
             {   
                 _rigidBody.constraints = RigidbodyConstraints.None;
+                _customer._isDead = true;
                 Debug.Log("Dead" + collisionForce);
-               // SpawnNext();
-                Destroy(gameObject,2f);
             }
         }
     }

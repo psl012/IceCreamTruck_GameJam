@@ -65,4 +65,9 @@ public class LevelManager : MonoBehaviour
         onRestartLevel();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);        
     }
+
+    public void DestroyCustomer(GameObject g_obj, float delay)
+    {
+        Destroy(g_obj, delay);
+    }
 }

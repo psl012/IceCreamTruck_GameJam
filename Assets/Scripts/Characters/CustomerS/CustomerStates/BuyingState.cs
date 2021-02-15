@@ -11,28 +11,31 @@ public class BuyingState : IState
 
     Customer _customer;
 
-    public BuyingState(float buyTime, Customer customer)
+    CustomerEvents _customerEvents;
+
+    public BuyingState(float buyTime, Customer customer, CustomerEvents customerEvents)
     {
         _buyTime = buyTime;
         _customer = customer;
+        _customerEvents = customerEvents;
     }
 
     public void Tick()
     {
-        if (_elapsed < _buyTime)
+        if (_customer._buyCounter < _buyTime)
         {
-            _elapsed += Time.deltaTime;
+            _customer._buyCounter += Time.deltaTime;
+            _customerEvents.Transacting();
         }
         else
         {
-            _customer.SetFinishedBuying(true);
+            _customer._finishedBuying = true;
         }
     }
 
     public void OnEnter()
     {
-        _elapsed = 0;
-        Debug.Log("Enter Buying");
+        _customer._buyCounter = 0;
     }
 
     public void OnExit()

@@ -29,6 +29,11 @@ public class Spawner : MonoBehaviour
     {
     }
 
+    public void CallSpawnCustomer()
+    {
+        StartCoroutine(SpawnCustomer());
+    }
+
     public IEnumerator SpawnCustomer()
     {
         float timer = Random.Range(10f, 20f);

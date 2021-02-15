@@ -1090,6 +1090,7 @@ GameObject:
   - component: {fileID: 1957371100366624991}
   - component: {fileID: 4349592486031534685}
   - component: {fileID: 9218928650554543097}
+  - component: {fileID: 914438241045511777}
   m_Layer: 10
   m_Name: Customer1
   m_TagString: Untagged
@@ -1293,6 +1294,7 @@ MonoBehaviour:
   point: 1
   _audioClip:
   - {fileID: 8300000, guid: 39638cd49d624b9459ea13a4d311f825, type: 3}
+  _buyCounter: 0
   _buyTime: 2
 --- !u!114 &4349592486031534685
 MonoBehaviour:
@@ -1317,6 +1319,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e681d685d519f4d419f3269372cf8bef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &914438241045511777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957371100366528117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 623f3f7e931911842ad7917e6397917c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1957371100366528119

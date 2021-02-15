@@ -4,16 +4,19 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+[RequireComponent(typeof(Customer))]
 public class CustomerDialogue : MonoBehaviour
 {
     TextMeshProUGUI _textMeshPro;
-    Customer _customer;
+    CustomerEvents _customerEvents;
     Slider _slider;    
     RectTransform _rectTransform;
+    Customer _customer;
 
     void Awake()
     {
         _customer = GetComponentInParent<Customer>();
+        _customerEvents = GetComponentInParent<CustomerEvents>();
         _textMeshPro = GetComponentInChildren<TextMeshProUGUI>();
         _slider = GetComponentInChildren<Slider>();
         _rectTransform = GetComponent<RectTransform>();
@@ -21,20 +24,21 @@ public class CustomerDialogue : MonoBehaviour
 
     void Start()
     {
-        _customer.onBuying += BuyingText;
-        _customer.onReWaiting += WaitingText;
-        _customer.onTransactionComplete += TransactonCompleteText;
-        _customer.onTransacting += UpdateSlider;
+        _customerEvents.onTransacting += BuyingText;
+        _customerEvents.onTransacting += UpdateSlider;
+        _customerEvents.onReWaiting += WaitingText;
+        _customerEvents.onTransactionComplete += TransactonCompleteText;
         
-        Vector3 rotateRect = new Vector3(_rectTransform.rotation.x, _customer.transform.rotation.y , _rectTransform.rotation.z);
+        Vector3 rotateRect = new Vector3(_rectTransform.rotation.x, _customerEvents.transform.rotation.y , _rectTransform.rotation.z);
         _rectTransform.rotation = Quaternion.Euler(rotateRect); 
+
         
     }
 
     void WaitingText()
     {
         _textMeshPro.text = "Waiting";
-        UpdateSlider(0);
+        UpdateSlider();
     }
 
     void BuyingText()
@@ -47,15 +51,17 @@ public class CustomerDialogue : MonoBehaviour
         _textMeshPro.text = "Thank you!";
     }
 
-    void UpdateSlider(float timeValue)
+    void UpdateSlider()
     {
-        _slider.value = timeValue;
+        Debug.Log(_customer._buyCounter + "SDSd");
+        _slider.value = _customer._buyCounter/_customer._buyTime;
     }
 
     void OnDestroy()
     {
-        _customer.onBuying -= BuyingText;
-        _customer.onReWaiting -= WaitingText;
-        _customer.onTransactionComplete -= TransactonCompleteText; 
+        _customerEvents.onTransacting -= BuyingText;
+        _customerEvents.onTransacting -= UpdateSlider;
+        _customerEvents.onReWaiting -= WaitingText;
+        _customerEvents.onTransactionComplete -= TransactonCompleteText;
     }
 }

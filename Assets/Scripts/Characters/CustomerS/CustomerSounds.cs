@@ -8,13 +8,22 @@ public class CustomerSounds : MonoBehaviour
 
     AudioSource _audioSource;
 
+    CustomerEvents _customerEvents;
+
     void Awake()
     {
+        _customerEvents = GetComponent<CustomerEvents>();
         _audioSource = GetComponent<AudioSource>();
         _audioSource.clip = _soldSound;
+    
     }
 
-    public void PlaySoldSound()
+    void Start()
+    {
+        _customerEvents.onTransactionComplete += PlaySoldSound;
+    }
+
+    void PlaySoldSound()
     {
         _audioSource.Play();
     }
