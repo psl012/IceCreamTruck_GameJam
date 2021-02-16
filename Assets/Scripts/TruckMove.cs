@@ -6,39 +6,21 @@ public class TruckMove : MonoBehaviour
 {
     [SerializeField] float _speed;
     [SerializeField] float _rotateSpeed;
-    [SerializeField] AudioClip[] _audioClip;
-    AudioSource _audioSource;
     Rigidbody _rigidBody;
-    float _accelerate;
-    float _steer;
+    HandleInput _handleInput;
 
-    float _breakSFXTimer = 0;
-
-    bool _isDriveSoundPlaying = false;
-
+    PlayerEvents _playerEvents;
 
     void Awake()
     {
         _rigidBody = GetComponent<Rigidbody>();
-        _audioSource = GetComponent<AudioSource>();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        _accelerate = Input.GetAxis("Vertical");      
-        _steer = Input.GetAxis("Horizontal");  
+        _handleInput = GetComponent<HandleInput>();
+        _playerEvents = GetComponent<PlayerEvents>();
     }
 
     void FixedUpdate()
     {
-        MoveCharacter(_accelerate, _steer);
+        MoveCharacter(_handleInput._accelerate, _handleInput._steer);
     }
 
     void MoveCharacter(float accelerate, float steer)
@@ -48,39 +30,11 @@ public class TruckMove : MonoBehaviour
 
         if (accelerate > 0)
         {
-            _breakSFXTimer += Time.deltaTime;
-            if (!_isDriveSoundPlaying)
-            {
-                _isDriveSoundPlaying = true;
-                PlayDriveSound();
-            }
+            _playerEvents.Driving();
         }
-        else if(_accelerate == 0 && _isDriveSoundPlaying)
+        else if(accelerate == 0)
         {
-            _isDriveSoundPlaying = false;
-            if (_breakSFXTimer > 2f)
-            {
-                PlayBreakSound();
-            }
-            else 
-            {
-                _audioSource.Stop();
-            }
-            _breakSFXTimer = 0;
+            _playerEvents.Braking();
         }
-    }
-
-    void PlayDriveSound()
-    {
-        _audioSource.clip = _audioClip[0];
-        _audioSource.Play();
-        _audioSource.loop = true;
-    }
-
-    void PlayBreakSound()
-    {
-        _audioSource.clip = _audioClip[1];
-        _audioSource.Play();
-        _audioSource.loop = false;
     }
 }
