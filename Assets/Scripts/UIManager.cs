@@ -28,12 +28,6 @@ public class UIManager : MonoBehaviour
         DeactivateRestartNotice();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void ActivateRestartNotice()
     {
         _restartNotice.SetActive(true);

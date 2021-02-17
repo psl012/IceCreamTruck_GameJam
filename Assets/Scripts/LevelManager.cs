@@ -16,6 +16,8 @@ public class LevelManager : MonoBehaviour
 
     public GameState _gameState;
 
+    public float _playerScore{get; set;} = 0;
+
     [SerializeField] float _timer;
     public float _elapsed {get; private set;} 
 
@@ -58,10 +60,17 @@ public class LevelManager : MonoBehaviour
         _elapsed -= Time.deltaTime;
     }
 
+    public void AddScore(float point)
+    {
+        _playerScore += point;
+        ScoreManager.instance.UpdateScore(_playerScore);
+    }
+
     public void RestartLevel()
     {
         _elapsed = _timer;
         _gameState = GameState.Play;
+        _playerScore = 0;
         onRestartLevel();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);        
     }

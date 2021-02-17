@@ -10,20 +10,9 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager instance;
     TextMeshProUGUI _textMeshPro;
     
-    float score = 0;
-
     void Awake()
     {
-        if (instance == null)
-        {
-            DontDestroyOnLoad(gameObject);
-            instance = this;
-        }
-        else if (instance != this)
-        {
-            Destroy(gameObject);
-        }
-
+        instance = this;
         _textMeshPro = GetComponent<TextMeshProUGUI>();
     }
 
@@ -33,21 +22,13 @@ public class ScoreManager : MonoBehaviour
         LevelManager.instance.onRestartLevel += RestartScore;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateScore(float score)
     {
-        
-    }
-
-    public void UpdateScore(float point)
-    {
-        score += point;
         _textMeshPro.text = BASE_TXT + score.ToString();
     }
 
     void RestartScore()
     {
-        score = 0;
-        _textMeshPro.text = BASE_TXT + score.ToString();
+        _textMeshPro.text = BASE_TXT + "0";
     }
 }

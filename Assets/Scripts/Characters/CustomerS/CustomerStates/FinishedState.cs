@@ -25,7 +25,7 @@ public class FinishedState : IState
     public void OnEnter()
     {
         _customerEvents.TransactionComplete();
-        ScoreManager.instance.UpdateScore(_point);
+        LevelManager.instance.AddScore(_point);
         _spawner.StartCoroutine(_spawner.SpawnCustomer());
         LevelManager.instance.DestroyCustomer(_customer.gameObject, 2f);
     }
